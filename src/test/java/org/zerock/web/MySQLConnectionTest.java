@@ -8,9 +8,9 @@ import org.junit.Test;
 public class MySQLConnectionTest {
 
 	private static final String DRIVER = 
-			"com.mysql.jdbc.Driver";
+			"com.mysql.cj.jdbc.Driver";
 	private static final String URL = 
-			"jdbc:mysql://127.0.0.1:3306/book_ex";
+			"jdbc:mysql://127.0.0.1:3306/book_ex?useSSL=false&serverTimezone=UTC";
 	private static final String USER = 
 			"zerock";
 	private static final String PW = 
@@ -20,7 +20,7 @@ public class MySQLConnectionTest {
 	@Test
 	public void testConnection() throws Exception{
 		
-		Class.forName(DRIVER);
+		//Class.forName(DRIVER);
 		
 		try(Connection con = DriverManager.getConnection(URL, USER, PW)){
 			
