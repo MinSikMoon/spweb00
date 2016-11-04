@@ -8,9 +8,16 @@ import org.junit.Test;
 public class MySQLConnectionTest {
 
 	private static final String DRIVER = 
+			//MySQL Driver 5 이하 
+			//"com.mysql.jdbc.Driver"
+			//MySQL Driver 6 이상 
 			"com.mysql.cj.jdbc.Driver";
-	private static final String URL = 
+	private static final String URL =
+			//MySQL 5.6 이하 
+			//"jdbc:mysql://127.0.0.1:3306/book_ex";
+			//MySQL 5.7 이상 
 			"jdbc:mysql://127.0.0.1:3306/book_ex?useSSL=false&serverTimezone=UTC";
+	
 	private static final String USER = 
 			"zerock";
 	private static final String PW = 
@@ -20,7 +27,7 @@ public class MySQLConnectionTest {
 	@Test
 	public void testConnection() throws Exception{
 		
-		//Class.forName(DRIVER);
+		Class.forName(DRIVER);
 		
 		try(Connection con = DriverManager.getConnection(URL, USER, PW)){
 			
